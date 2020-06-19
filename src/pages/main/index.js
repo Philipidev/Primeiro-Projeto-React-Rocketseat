@@ -16,7 +16,7 @@ state={
 
     loadProducts = async (page=1)=> {
         //if(page==1)
-            const response = await api.get('/products?page=${page}');
+            const response = await api.get('/products?page='+page);
        // else
          //   const response = await api.get('/products?page=${page}');
         
@@ -28,7 +28,9 @@ state={
 
     nextPage=()=>{
         const {page,productInfo}=this.state;
+        
         console.log(page);
+        console.log(productInfo);
         if(page==productInfo.pages) return;
 
         const pageNumber=page+1;
@@ -39,6 +41,7 @@ state={
         const {page,productInfo}=this.state;
 
         console.log(page);
+        console.log(productInfo);
         if(page==1) return;
 
         const pageNumber=page- 1;
